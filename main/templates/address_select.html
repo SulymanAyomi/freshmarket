@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% block content %}
+
+<body class="home home-1">
+    <div id="all">
+        <div id="content" class="site-content">
+            <!-- Breadcrumb -->
+            <div id="breadcrumb">
+                <div class="container" style="margin-top: 11rem;">
+                    <h2 class="title">Shopping Cart</h2>
+
+                    <ul class="breadcrumb">
+                        <li><a href="{% url 'home' %}" title="Home">Home</a></li>
+                        <li><span>Shopping Cart</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="page-checkout">
+                <div class="row">
+                    <div class="checkout-left col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                        <form id="formaddress" method="post" class="form-horizontal">
+
+                            <div class="panel-group" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a class="accordion-toggle collapsed" data-toggle="collapse"
+                                                data-parent="#accordion" href="#collapseOne">
+                                                Select Address
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOne" class="accordion-body collapse" style="height: 0px;">
+                                        <div class="panel-body">
+                                            {% csrf_token %}
+                                            {% for form in form%}
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    {{ form.label_tag }}
+                                                    <select name="{{form.name}}" class="form-control">
+                                                        {% for value in form%}
+                                                        <option>{{ value }}</option>
+                                                        {%endfor%}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            {%endfor%}
+
+                                            <button type="submit" class="btn btn-primary">
+                                                Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </form>
+
+                        {% if user.is_authenticated %}
+                        <div class="pull-right">
+                            <a class="btn btn-primary" href="{% url 'address_create' %}">New Address</a>
+                        </div>
+                        {% else %}
+                        <div class="pull-right">
+                            <a class="btn btn-primary"
+                                href="{% url 'signup' %}?next={% url 'address_select' %}">Signup</a>
+                            <a class="btn btn-primary"
+                                href="{% url 'login' %}?next={% url 'address_select' %}">Login</a>
+                        </div>
+                        {% endif %}
+
+                    </div>
+
+
+                    <div class="checkout-right col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <h4 class="title">Cart Total</h4>
+                        <table class="table cart-total">
+                            <tbody>
+                                <tr class="cart-subtotal">
+                                    <th>
+                                        <strong>Cart Subtotal</strong>
+                                    </th>
+                                    <td>
+                                        <strong><span class="amount">${{ request.cart.get_total}}</span></strong>
+                                    </td>
+                                </tr>
+                                <tr class="shipping">
+                                    <th>
+                                        Shipping
+                                    </th>
+                                    <td>
+                                        Free Shipping<input type="hidden" value="free_shipping" class="shipping-method"
+                                            name="shipping_method">
+                                    </td>
+                                </tr>
+                                <tr class="total">
+                                    <th>
+                                        <strong>Order Total</strong>
+                                    </th>
+                                    <td>
+                                        <strong><span class="amount">$431</span></strong>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock content %}

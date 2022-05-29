@@ -1,0 +1,14 @@
+<div class="product-quantity">
+    <div class="qty">
+        <div class="input-group">
+            <input type="number" name="{{ widget.name }}" max="10" {% include 'django/forms/widgets/attrs.html' %}
+                value="{{ widget.value }}" min="1" class="form-control quantity-number" />
+            <span class="adjust-qty">
+                <button class="adjust-btn plus btn btn-default btn-number btn-plus" data-type="plus"
+                    data-field="{{ widget.name }}">+</button>
+                <span class="adjust-btn minus btn btn-default btn-number btn-minus" data-type="minus"
+                    data-field="{{ widget.name }}">-</span>
+            </span>
+        </div>
+    </div>
+</div>

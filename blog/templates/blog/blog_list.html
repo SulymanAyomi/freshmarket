@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- Main Content -->
+<div id="content" class="site-content">
+    <!-- Breadcrumb -->
+    <div id="breadcrumb">
+        <div class="container">
+            <h2 class="title">Our Blog</h2>
+
+            <ul class="breadcrumb">
+                <li><a href="{% url 'home' %}" title="Home">Home</a></li>
+                <li><span>Our Blog</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="blog-list full-width">
+            <div class="posts-list">
+                <div class="row">
+                    {% for blog in blogs %}
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="post-item">
+                            <div class="post-image">
+                                <a href="blog-detail.html">
+                                    <img class="img-responsive" src="{{ blog.get_image}}" alt="Blog Image">
+                                </a>
+                            </div>
+                            <a class="post-title" href="blog-detail.html">{{ blog.name }}y</a>
+                            <div class="post-info">
+                                <span class="comment item"><i class="zmdi zmdi-comments"></i>2 Comments</span>
+                                <span class="date item"><i class="zmdi zmdi-calendar-note"></i>{{blog.added_date}}</span>
+                            </div>
+                            <div class="post-description">
+                                {{blog.summary}}
+                                <span class="post-readmore"><a href="blog-detail.html">view more</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+
+            <!-- Pagination Bar -->
+            <div class="pagination-bar">
+                <div class="pagination">
+                    <ul class="page-list">
+                        {% if page_obj.has_previous %}
+                        <li><a href="?page={{ page_obj.previous_page_number }}" class="prev">Previous</a></li>
+                        <li><a href="?page=1" class="prev">First</a></li>
+                        {% endif %}
+                        <li><a href="?page={{ page_obj.number }}" class="current">{{ page_obj.number }}</a></li>
+                        {% if page_obj.has_next %}
+                        <li><a href="?page={{ page_obj.next_page_number }}" class="next">Next</a></li>
+                        <li><a href="?page={{ page_obj.paginator.num_pages }}" class="next">Last</a></li>
+                        {% endif %}
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

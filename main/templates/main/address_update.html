@@ -1,0 +1,110 @@
+{% extends "base.html"%}
+{% load static %}
+{% block content %}
+
+<body class="home home-1">
+    <div id="all">
+        <!-- Main Content -->
+        <div id="content" class="site-content">
+            <!-- Breadcrumb -->
+            <div id="breadcrumb">
+                <div class="container" style="margin-top: 11rem;">
+                    <h2 class="title">Create Account</h2>
+
+                    <ul class="breadcrumb">
+                        <li><a href="{% url 'home' %}" title="Home">Home</a></li>
+                        <li><span>Update Address</span></li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="container">
+                <div class="register-page">
+                    <div class="register-form form">
+                        <div class="block-title">
+                            <h2 class="title"><span>Update Address</span></h2>
+                        </div>
+
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                {{ form.name.label_tag }}
+                                <input type="text" class="form-control {% if form.name.errors %}
+                                is-invalid
+                                {% endif %}" id="id_name" name="name" placeholder="Your name"
+                                    value="{{ form.name.value|default:'' }}">
+                                {% if form.name.errors %}
+                                <div class="invalid-feedback">
+                                    {{ form.name.errors }}
+                                </div>
+                                {% endif %}
+                            </div>
+
+                            <div class="form-group">
+                                {{ form.address.label_tag }}
+                                <input type="text" class="form-control {% if form.address.errors %}
+                                is-invalid
+                                {% endif %}" id="id_address" name="address" placeholder="Your address"
+                                    value="{{ form.address.value|default:'' }}">
+                                {% if form.address.errors %}
+                                <div class="invalid-feedback">
+                                    {{ form.address.errors }}
+                                </div>
+                                {% endif %}
+                            </div>
+
+                            <div class="form-group">
+                                {{ form.zip_code.label_tag }}
+                                <input type="text" class="form-control {% if form.zip_code.errors %}
+                                is-invalid
+                                {% endif %}" id="id_zip_code" name="name" placeholder="Zip code"
+                                    value="{{ form.id_zip_code.value|default:'' }}">
+                                {% if form.zip_code.errors %}
+                                <div class="invalid-feedback">
+                                    {{ form.zip_code.errors }}
+                                </div>
+                                {% endif %}
+                            </div>
+
+                            <div class="form-group">
+                                {{ form.city.label_tag }}
+                                <input type="text" class="form-control {% if form.city.errors %}
+                                is-invalid
+                                {% endif %}" id="id_city" name="name" placeholder="city"
+                                    value="{{ form.city.value|default:'' }}">
+                                {% if form.city.errors %}
+                                <div class="invalid-feedback">
+                                    {{ form.city.errors }}
+                                </div>
+                                {% endif %}
+                            </div>
+
+                            <div class="form-group">
+                                {{ form.state.label_tag }}
+                                <select type="text" class="form-control {% if form.state.errors %}
+                                is-invalid
+                                {% endif %}" id="id_state" name="state" placeholder="Select state"
+                                    value="{{ form.state.value|default:'' }}">
+                                    {% for state in form.state%}
+                                    <option value="{{ form.state.value }}">{{ form.state.value }}</option>
+                                    {% endfor %}
+                                </select>
+                                {% if form.state.errors %}
+                                <div class="invalid-feedback">
+                                    {{ form.state.errors }}
+                                </div>
+                                {% endif %}
+                            </div>
+
+
+                            <div class="form-group text-center">
+                                <input type="submit" class="btn btn-primary" value="Submit">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+{% endblock content%}

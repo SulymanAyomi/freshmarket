@@ -1,0 +1,24 @@
+name,description,tags,image_filename,old_price,new_price,rating,category
+apple,A delicious and juicy fruit,juicy|sweet|freh,apple.jpg,200,250,4.5,fruit
+apple jam,A jam made just from pure apple,sweet|jam|packaged,apple_jam.jpg,3000,3000,5,jam
+banana,Everyones favourite fruit,fresh,banana.jpg,300,250,3.5,fruit
+bell pepper,bell pepper for your soup,fresh|pepper|hot,bell-pepper.jpg,500,500,3,vegetable
+bread,Just out of the oven,fresh|tasty,bread.jpg,500,500,4,bread
+slice bread,A family size bread,fresh|family|tasty,slice bread.jpg,1000,1000,4,bread
+cucumber,A good vegetable ,fresh,cucumber.jpg,200,300,4,vegetable
+eggplant,A tasty vege,fresh,eggplant.jpg,300,200,4,vegetable
+grape,A juciy fruit in varieties,juicy|sweet|freh,grape.jpg,200,260,3,fruit
+kiwifruit,good fruit,fresh,kiwifruit.jpg,500,520,3,fruit
+lemon,fruit with lots of vitamins,fresh|bitter,lemon.jpg,300,300,3,fruit
+lettuce,A vegetable with  lots of vitamins,fresh,lettuce.jpg,400,300,4,vegetable
+orange juice,A refreshing juice of just pure squeezed orange,juicy|sweet|freh,orange-juice.jpg,2500,2300,5,juice
+orange juice,A refreshing juice of just pure squeezed orange,juicy|sweet|freh,orange-juice1.jpg,2500,2300,5,juice
+peach ,A fruit,fresh,peach.jpg,500,400,3,fruit
+pear jam,A jam made just from pear,sweet|jam|packaged,pear-jam.jpg,3000,3100,5,jam
+pear ,pear fruit,fresh,pear.jpg,400,500,4,fruit
+pineapple juice,A juice made out of squeezed pineapple. So Juicy,juicy|sweet|fresh,pineapple-juice.jpg,3000,3200,4.8,juice
+pineapple,pineapple fruit,fresh|sweet,pineapple.jpg,400,450,4,fruit
+rasberry jam,A jam made from rasberry,jam|sweet,rasberry-jam.jpg,4000,4000,4,jam
+spinach,A vegetable with  lots of vitamins,fresh,spinach.jpg,200,200,3,vegetable
+strawberry,A fruit,fresh,strawberry.jpg,400,400,4,fruit
+tomato juice,A healthy juice,fresh,tomato_juice.jpg,2000,2000,4,juice

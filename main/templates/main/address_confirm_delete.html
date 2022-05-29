@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Delete address</h2>
+
+<body class="home home-1">
+    <div id="all">
+        <!-- Main Content -->
+        <div id="content" class="site-content">
+            <!-- Breadcrumb -->
+            <div id="breadcrumb">
+                <div class="container" style="margin-top: 11rem;">
+                    <h2 class="title">Create Account</h2>
+
+                    <ul class="breadcrumb">
+                        <li><a href="{% url 'home' %}" title="Home">Home</a></li>
+                        <li><span>Delete Account</span></li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="container">
+                <div class="register-page">
+                    <div class="register-form form">
+                        <div class="block-title">
+                            <h2 class="title"><span>Delete Address</span></h2>
+                        </div>
+                        <form method="POST">
+                            {% csrf_token %}
+                            <p>Are you sure you want to delete it?</p>
+                            <button type="submit" class="btn btn-primary">
+                                Submit
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+{% endblock content %}
